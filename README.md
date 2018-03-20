@@ -17,6 +17,8 @@ $ brew cask install vagrant
 
 ```
 $ vagrant plugin install vagrant-vbguest
+$ vagrant plugin install vagrant-timezone
+$ vagrant plugin install vagrant-hostmanager
 ```
 
 ## Usage
