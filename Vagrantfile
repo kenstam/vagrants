@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
   config.vm.provision "file", source: "./config/vsftpd.conf", destination: "~/vsftpd.conf"
+  config.vm.provision "file", source: "./config/vsftpd-ssl.conf", destination: "~/vsftpd-ssl.conf"
   config.vm.provision :shell, :path => "./scripts/vsftpd.sh"
 
   if Vagrant.has_plugin?("vagrant-timezone")

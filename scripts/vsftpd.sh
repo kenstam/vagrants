@@ -2,6 +2,7 @@
 
 sudo useradd -m -s /bin/bash -p Fx7bB59qcB67k test1
 echo "vsftpd test file" | sudo tee /home/test1/test.txt
+sudo chown test1:test /home/test1/test.txt
 
 sudo openssl genrsa -out /usr/local/share/ca-certificates/rootCA.key 2048
 sudo openssl req -x509 -new -nodes -key /usr/local/share/ca-certificates/rootCA.key -sha256 -days 1024 -out /usr/local/share/ca-certificates/rootCA.crt -subj "/C=CA/ST=Ontario/L=Toronto/O=IT/CN=192.168.33.33"
@@ -12,5 +13,7 @@ sudo update-ca-certificates
 
 sudo cp -p /etc/vsftpd.conf /etc/vsftpd.conf.orig
 sudo cp /home/vagrant/vsftpd.conf /etc/vsftpd.conf
+sudo cp /home/vagrant/vsftpd-ssl.conf /etc/vsftpd-ssl.conf
 sudo rm /home/vagrant/vsftpd.conf
 sudo service vsftpd restart
+sudo vsftpd /etc/vsftpd-ssl.conf &
