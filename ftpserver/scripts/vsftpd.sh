@@ -16,4 +16,5 @@ sudo cp /home/vagrant/vsftpd.conf /etc/vsftpd.conf
 sudo cp /home/vagrant/vsftpd-ssl.conf /etc/vsftpd-ssl.conf
 sudo rm /home/vagrant/vsftpd.conf
 sudo service vsftpd restart
+sudo echo "vsftpd /etc/vsftpd-ssl.conf & ;; exit 0" > /etc/rc.local
 sudo vsftpd /etc/vsftpd-ssl.conf &
