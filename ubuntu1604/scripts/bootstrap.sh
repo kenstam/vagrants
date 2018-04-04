@@ -1,9 +1,9 @@
 #!/bin/bash
 
-sudo apt-get -y update
-sudo apt-get -y autoclean
-sudo apt-get -y autoremove
+apt-get -y update
+apt-get -y dist-upgrade
+apt-get -y autoclean
+apt-get -y purge puppet puppet-common chef chef-zero
+apt-get -y autoremove --purge
 
-sudo ufw disable
-
-sudo apt-get -y install git
+ufw disable

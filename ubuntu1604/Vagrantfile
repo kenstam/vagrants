@@ -6,11 +6,12 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "server1604"
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   config.vm.network "private_network", ip: "192.168.33.30"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
-  config.vm.provision :shell, privileged: false, :path => "./scripts/ruby.sh"
+#  config.vm.provision :shell, :path => "./scripts/ruby.sh"
+  config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
   config.vm.provision :shell, :path => "./scripts/node.sh"
 
   if Vagrant.has_plugin?("vagrant-timezone")
@@ -18,7 +19,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "512"]
+    vb.customize ["modifyvm", :id, "--memory", "1024"]
     vb.customize ["modifyvm", :id, "--cpus", "1"]
   end
 end
