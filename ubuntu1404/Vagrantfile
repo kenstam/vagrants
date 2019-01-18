@@ -10,7 +10,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", ip: "192.168.33.20"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
-#  config.vm.provision :shell, :path => "./scripts/ruby.sh"
   config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
   config.vm.provision :shell, :path => "./scripts/node.sh"
 
@@ -19,7 +18,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
-    vb.customize ["modifyvm", :id, "--cpus", "1"]
+    vb.customize ["modifyvm", :id, "--memory", "3072"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
   end
 end
