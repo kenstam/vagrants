@@ -1,0 +1,24 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+
+  config.vm.hostname = "desktop1404"
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.network "private_network", ip: "192.168.43.20"
+
+  config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
+  config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
+  config.vm.provision :shell, :path => "./scripts/node.sh"
+
+  if Vagrant.has_plugin?("vagrant-timezone")
+    config.timezone.value = :host
+  end
+
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", "4096"]
+    vb.customize ["modifyvm", :id, "--cpus", "2"]
+  end
+end
