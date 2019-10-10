@@ -6,9 +6,10 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "ftpserver"
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   config.vm.network "private_network", ip: "192.168.33.33"
 
+  config.vm.provision "file", source: "./config/sshd_config", destination: "~/sshd_config"
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
   config.vm.provision "file", source: "./config/vsftpd.conf", destination: "~/vsftpd.conf"
   config.vm.provision "file", source: "./config/vsftpd-ssl.conf", destination: "~/vsftpd-ssl.conf"
