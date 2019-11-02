@@ -1,4 +1,4 @@
-# FTPServer with Vagrant
+# Ruby with Vagrant
 ## Requirements
 
 * Install VirtualBox [https://www.virtualbox.org](https://www.virtualbox.org) or
@@ -7,7 +7,7 @@
 brew cask install virtualbox
 ```
 
-* Install Vagrant
+* Install Vagrant [https://www.vagrantup.com/](https://www.vagrantup.com/) or
 
 ```
 $ brew cask install vagrant
@@ -23,23 +23,18 @@ $ vagrant plugin install vagrant-hostmanager
 
 ## Usage
 
+Go to one of the sudirectories of the vagrant environment you want to create and:
+
 ```
 $ vagrant up
 ```
 
-Use and sFTP or FTP-S client to connect to above ip with:
+ssh in and start your development:
 
 ```
-ip: 192.168.33.33
-port: 22 (sftp)
-port: 990 (ftps)
-user: test1
-pass: test1
+vagrant ssh
 ```
 
-## Start/Stop ftp server
-
-To stop:`vagrant halt`
-To start: `vagrant up`
-To destroy and start over: `vagrant destroy`
-
+```
+$ git clone https://github.com/...
+```
