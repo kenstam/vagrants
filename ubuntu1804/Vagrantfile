@@ -11,6 +11,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
   config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
+  config.vm.provision :shell, :path => "./scripts/node.sh"
 
   if Vagrant.has_plugin?("vagrant-timezone")
     config.timezone.value = :host

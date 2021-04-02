@@ -11,7 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision "file", source: "repo/fullstaq.repo", destination: "/tmp/fullstaq.repo"
   config.vm.provision "shell", inline: "cp /tmp/fullstaq.repo /etc/yum.repos.d/"
-  config.vm.provision :shell, :path => "./scripts/ruby.sh"
+  config.vm.provision :shell, privileged: false, :path => "./scripts/ruby.sh"
+  config.vm.provision :shell, :path => "./scripts/node.sh"
 
   if Vagrant.has_plugin?("vagrant-timezone")
     config.timezone.value = :host

@@ -7,10 +7,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "server2004"
   config.vm.box = "ubuntu/focal64"
-  config.vm.network "private_network", ip: "192.168.33.30"
+  config.vm.network "private_network", ip: "192.168.33.50"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
-  config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
+  config.vm.provision "file", source: "repo/fullstaq.list", destination: "/tmp/fullstaq.list"
+  config.vm.provision "shell", inline: "cp /tmp/fullstaq.list /etc/apt/sources.list.d/"
+  config.vm.provision :shell, privileged: false, :path => "./scripts/ruby.sh"
+  config.vm.provision :shell, :path => "./scripts/node.sh"
 
   if Vagrant.has_plugin?("vagrant-timezone")
     config.timezone.value = :host

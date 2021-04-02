@@ -1,2 +1,3 @@
-curl -sL https://rpm.nodesource.com/setup_8.x | sudo bash -
-sudo yum -y install nodejs yarn
+curl -sL https://rpm.nodesource.com/setup_14.x | bash -
+yum -y install nodejs
+npm install -g yarn
