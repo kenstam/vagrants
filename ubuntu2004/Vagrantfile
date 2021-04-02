@@ -5,9 +5,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.hostname = "server1804"
-  config.vm.box = "ubuntu/bionic64"
-  config.vm.network "private_network", ip: "192.168.33.40"
+  config.vm.hostname = "server2004"
+  config.vm.box = "ubuntu/focal64"
+  config.vm.network "private_network", ip: "192.168.33.30"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
   config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
