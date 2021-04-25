@@ -14,10 +14,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, privileged: false, :path => "./scripts/ruby.sh"
   config.vm.provision :shell, :path => "./scripts/node.sh"
 
-  if Vagrant.has_plugin?("vagrant-timezone")
-    config.timezone.value = :host
-  end
-
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "3072"]
     vb.customize ["modifyvm", :id, "--cpus", "2"]
