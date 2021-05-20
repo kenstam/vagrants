@@ -5,9 +5,9 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  config.vm.hostname = "centos8"
-  config.vm.box = "centos/8"
-  config.vm.network "private_network", ip: "192.168.40.50"
+  config.vm.hostname = "amazonlinux2"
+  config.vm.box = "gbailey/amzn2"
+  config.vm.network "private_network", ip: "192.168.44.20"
 
   config.vm.provision :shell, :path => "./scripts/base.sh"
   config.vm.provision "file", source: "repo/fullstaq.repo", destination: "/tmp/fullstaq.repo"
