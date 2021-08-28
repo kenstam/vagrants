@@ -10,7 +10,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network "private_network", ip: "192.168.33.20"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
-  config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
+  config.vm.provision "file", source: "scripts/libruby2.3_2.3.3-1bbox1~trusty2_amd64.deb", destination: "/tmp/"
+  config.vm.provision "file", source: "scripts/ruby2.3-dev_2.3.3-1bbox1~trusty2_amd64.deb", destination: "/tmp/"
+  config.vm.provision "file", source: "scripts/ruby2.3_2.3.3-1bbox1~trusty2_amd64.deb", destination: "/tmp/"
+  config.vm.provision "file", source: "scripts/rubygems-integration_1.8-1bbox1~trusty1_all.deb", destination: "/tmp/"
+  config.vm.provision :shell, :path => "./scripts/ruby.sh"
+#  config.vm.provision :shell, privileged: false, :path => "./scripts/rbenv.sh"
   config.vm.provision :shell, :path => "./scripts/node.sh"
 
   config.vm.provider :virtualbox do |vb|
