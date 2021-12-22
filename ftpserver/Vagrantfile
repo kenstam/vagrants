@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "ftpserver"
   config.vm.box = "ubuntu/xenial64"
-  config.vm.network "private_network", ip: "192.168.33.33"
+  config.vm.network "private_network", ip: "192.168.56.33"
 
   config.vm.provision "file", source: "./config/sshd_config", destination: "~/sshd_config"
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
