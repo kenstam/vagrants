@@ -4,7 +4,7 @@ curl -SLfO https://raw.githubusercontent.com/fullstaq-labs/fullstaq-ruby-server-
 sudo apt-key add fullstaq-ruby.asc
 rm fullstaq-ruby.asc
 sudo apt-get update
-sudo apt-get -y install
+sudo apt-get -y install \
   fullstaq-ruby-common \
   fullstaq-ruby-2.7.5 \
   fullstaq-ruby-2.7.5-jemalloc \
