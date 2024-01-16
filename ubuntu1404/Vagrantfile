@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "server1404"
   config.vm.box = "ubuntu/trusty64"
-  config.vm.network "private_network", ip: "192.168.56.20"
+  config.vm.network "private_network", ip: "192.168.56.10"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
   config.vm.provision "file", source: "scripts/libruby2.3_2.3.3-1bbox1~trusty2_amd64.deb", destination: "/tmp/"

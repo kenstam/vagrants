@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.hostname = "server2004"
   config.vm.box = "ubuntu/focal64"
-  config.vm.network "private_network", ip: "192.168.56.50"
+  config.vm.network "private_network", ip: "192.168.56.13"
 
   config.vm.provision :shell, :path => "./scripts/bootstrap.sh"
   config.vm.provision "file", source: "repo/fullstaq.list", destination: "/tmp/fullstaq.list"
