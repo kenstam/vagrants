@@ -1,0 +1,9 @@
+[fullstaq-ruby]
+name=fullstaq-ruby
+priorty=70
+baseurl=https://yum.fullstaqruby.org/el-9/$basearch
+gpgcheck=0
+repo_gpgcheck=0
+enabled=1
+gpgkey=https://raw.githubusercontent.com/fullstaq-ruby/server-edition/main/fullstaq-ruby.asc
+sslverify=1
