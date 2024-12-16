@@ -1,3 +1,2 @@
-curl -sL https://rpm.nodesource.com/setup_18.x | sudo bash -
-sudo dnf -y install nodejs
+sudo dnf -y install nodejs # AL2023 comes with 18 or 20 with nodejs20
 sudo npm install -g yarn
